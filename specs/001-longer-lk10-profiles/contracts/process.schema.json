@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Process Preset",
+  "type": "object",
+  "required": ["type", "name", "inherits", "compatible_printers"],
+  "properties": {
+    "type": {"const": "process"},
+    "name": {"type": "string"},
+    "inherits": {"type": "string"},
+    "compatible_printers": {"type": "array", "items": {"type": "string"}},
+    "start_gcode": {"type": ["string", "null"]},
+    "end_gcode": {"type": ["string", "null"]}
+  }
+}

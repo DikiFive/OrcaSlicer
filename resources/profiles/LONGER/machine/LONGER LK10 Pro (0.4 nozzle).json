@@ -6,6 +6,7 @@
   "setting_id": "GM001",
   "instantiation": "true",
   "printer_model": "LONGER LK10 Pro",
+  "printer_settings_id": "LONGER",
   "printer_notes": "",
   "default_print_profile": "0.20mm Standard @LONGER LK10 Pro (0.4 nozzle)",
   "nozzle_diameter": ["0.4"],
