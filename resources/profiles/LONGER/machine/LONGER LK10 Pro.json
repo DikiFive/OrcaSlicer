@@ -1,0 +1,13 @@
+{
+  "type": "machine_model",
+  "name": "LONGER LK10 Pro",
+  "model_id": "LONGER-LK10-Pro",
+  "nozzle_diameter": "0.2;0.4;0.6;0.8",
+  "machine_tech": "FFF",
+  "family": "LONGER",
+  "bed_model": "",
+  "bed_texture": "",
+  "bed_exclude_area": ["0x0"],
+  "hotend_model": "",
+  "default_materials": "Generic PLA @System;Generic PETG @System"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "LONGER",
+  "version": "01.00.00.00",
+  "force_update": "1",
+  "description": "LONGER configurations",
+  "machine_model_list": [
+    { "name": "LONGER LK10", "sub_path": "machine/LONGER LK10.json" },
+    { "name": "LONGER LK10 Pro", "sub_path": "machine/LONGER LK10 Pro.json" }
+  ],
+  "machine_list": [
+    { "name": "LONGER LK10 (0.4 nozzle)", "sub_path": "machine/LONGER LK10 (0.4 nozzle).json" },
+    { "name": "LONGER LK10 Pro (0.4 nozzle)", "sub_path": "machine/LONGER LK10 Pro (0.4 nozzle).json" }
+  ],
+  "process_list": [
+    { "name": "fdm_process_common", "sub_path": "process/fdm_process_common.json" },
+    { "name": "0.20mm Standard @LONGER LK10 (0.4 nozzle)", "sub_path": "process/0.20mm Standard @LONGER LK10 (0.4 nozzle).json" },
+    { "name": "0.20mm Standard @LONGER LK10 Pro (0.4 nozzle)", "sub_path": "process/0.20mm Standard @LONGER LK10 Pro (0.4 nozzle).json" }
+  ],
+  "filament_list": [
+    { "name": "fdm_filament_common", "sub_path": "filament/fdm_filament_common.json" }
+  ]
+}

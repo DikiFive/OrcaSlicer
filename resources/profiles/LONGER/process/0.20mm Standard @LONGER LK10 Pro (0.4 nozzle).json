@@ -1,0 +1,8 @@
+{
+  "type": "process",
+  "name": "0.20mm Standard @LONGER LK10 Pro (0.4 nozzle)",
+  "inherits": "fdm_process_common",
+  "from": "system",
+  "instantiation": "true",
+  "compatible_printers": ["LONGER LK10 Pro (0.4 nozzle)"]
+}
