@@ -46,7 +46,7 @@ Independent Test: 参见 spec.md 的 US2；quickstart.md 步骤可复用。
 - [ ] T025 [US2] Run extra checker script and capture output at scripts/orca_extra_profile_check.py
 - [X] T025 [US2] Run extra checker script and capture output at scripts/orca_extra_profile_check.py (see .verify/longer_extra_check.log: 0 errors, 0 warnings)
 - [ ] T026 [P] [US2] Fix reported issues (if any) and rerun validators at resources/profiles/LONGER/
-- [ ] T027 [US2] Bump vendor version/force_update appropriately at resources/profiles/LONGER.json
+- [X] T027 [US2] Bump vendor version/force_update appropriately at resources/profiles/LONGER.json (version=01.00.00.01, force_update=1)
 - [ ] T028 [US2] Update quickstart with validator outputs reference at specs/001-longer-lk10-profiles/quickstart.md
 
 ## Phase 5 — Polish & Cross-cutting

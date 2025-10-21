@@ -11,12 +11,14 @@
   "default_print_profile": "0.20mm Standard @LONGER LK10 (0.4 nozzle)",
   "nozzle_diameter": ["0.4"],
   "printer_variant": "0.4",
-  "printable_area": ["0x0", "220x0", "220x220", "0x220"],
-  "printable_height": "220",
+  "printable_area": ["0x0", "225x0", "225x225", "0x225"],
+  "printable_height": "265",
   "nozzle_hrc": "0",
   "nozzle_type": "brass",
   "nozzle_volume": "0",
   "gcode_flavor": "klipper",
   "host_type": "klipper",
-  "default_filament_profile": ["Generic PLA @System"]
+  "default_filament_profile": ["Generic PLA @System"],
+  "thumbnails": ["300x300"],
+  "thumbnails_format": "PNG"
 }
