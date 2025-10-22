@@ -1,6 +1,6 @@
 {
   "name": "LONGER",
-  "version": "01.00.00.07",
+  "version": "01.00.00.27",
   "force_update": "1",
   "description": "LONGER configurations",
   "machine_model_list": [
@@ -8,8 +8,9 @@
   { "name": "LONGER LK10Plus", "sub_path": "machine/LONGER LK10Plus.json" }
   ],
   "machine_list": [
+    { "name": "fdm_machine_common", "sub_path": "machine/fdm_machine_common.json" },
     { "name": "LONGER LK10 (0.4 nozzle)", "sub_path": "machine/LONGER LK10 (0.4 nozzle).json" },
-  { "name": "LONGER LK10Plus (0.4 nozzle)", "sub_path": "machine/LONGER LK10Plus (0.4 nozzle).json" }
+    { "name": "LONGER LK10Plus (0.4 nozzle)", "sub_path": "machine/LONGER LK10Plus (0.4 nozzle).json" }
   ],
   "process_list": [
     { "name": "fdm_process_common", "sub_path": "process/fdm_process_common.json" },
