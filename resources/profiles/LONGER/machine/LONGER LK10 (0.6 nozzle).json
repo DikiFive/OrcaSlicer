@@ -13,6 +13,7 @@
   "printer_variant": "0.6",
   "printable_area": ["0x0", "225x0", "225x225", "0x225"],
   "printable_height": "265",
+  "extruder_clearance_height_to_lid": "245",
   "nozzle_hrc": "0",
   "nozzle_type": "brass",
   "nozzle_volume": "0",

@@ -13,6 +13,7 @@
   "printer_variant": "0.6",
   "printable_area": ["0x0", "320x0", "320x320", "0x320"],
   "printable_height": "400",
+  "extruder_clearance_height_to_lid": "380",
   "nozzle_hrc": "0",
   "nozzle_type": "brass",
   "nozzle_volume": "0",
