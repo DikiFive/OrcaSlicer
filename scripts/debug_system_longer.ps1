@@ -1,33 +1,40 @@
 param(
-    [string]$UserProfile = "$env:USERPROFILE"
+    [string]$Vendor = "LONGER"
 )
-$ErrorActionPreference = 'Continue'
-$sys = Join-Path $UserProfile 'AppData\Roaming\OrcaSlicer\system\LONGER'
-$app = 'F:\OrcaSlicer\resources\profiles\LONGER'
-Write-Host "System vendor path: $sys"
-Write-Host "App vendor path:    $app"
 
-function Show-FileInfo([string]$label, [string]$path){
-    Write-Host "--- $label ---"
-    if(Test-Path $path){
-        $it = Get-Item $path
-        Write-Host ("{0}  {1} bytes" -f $it.FullName, $it.Length)
-        try {
-            $raw = Get-Content -Raw $path -ErrorAction Stop
-            $snippet = if($raw.Length -gt 256){ $raw.Substring(0,256) } else { $raw }
-            Write-Host "First 256 chars:"
-            Write-Host $snippet
-        } catch {
-            Write-Host "Failed to read: $_"
-        }
-    } else {
-        Write-Host "Missing: $path"
-    }
-}
+$ErrorActionPreference = 'Stop'
 
-# Inspect key files
-Show-FileInfo 'System root LONGER.json' (Join-Path $UserProfile 'AppData\\Roaming\\OrcaSlicer\\system\\LONGER.json')
-Show-FileInfo 'System LONGER.json' (Join-Path $sys 'LONGER.json')
-Show-FileInfo 'System machine/LONGER LK10.json' (Join-Path $sys 'machine/LONGER LK10.json')
-Show-FileInfo 'App machine/LONGER LK10.json' (Join-Path $app 'machine/LONGER LK10.json')
-Show-FileInfo 'App LONGER.json' (Join-Path $app '..\LONGER.json')
+$repoRoot = Split-Path -Parent $PSScriptRoot
+$profilesSrc = Join-Path $repoRoot "resources\profiles"
+$systemDest = Join-Path $env:APPDATA "OrcaSlicer\system"
+
+Write-Host "Repo:    $repoRoot"
+Write-Host "Source:  $profilesSrc"
+Write-Host "Dest:    $systemDest"
+
+New-Item -ItemType Directory -Force -Path $systemDest | Out-Null
+
+# Copy vendor index
+$vendorIndexSrc = Join-Path $profilesSrc ("{0}.json" -f $Vendor)
+$vendorIndexDst = Join-Path $systemDest ("{0}.json" -f $Vendor)
+Copy-Item -Path $vendorIndexSrc -Destination $vendorIndexDst -Force
+
+# Copy vendor folder
+$vendorFolderSrc = Join-Path $profilesSrc $Vendor
+$vendorFolderDst = Join-Path $systemDest $Vendor
+Copy-Item -Path $vendorFolderSrc -Destination $systemDest -Recurse -Force
+
+# Verify
+$okIndex = Test-Path $vendorIndexDst
+$okCommon = Test-Path (Join-Path $vendorFolderDst "machine\fdm_machine_common.json")
+$machineCount = (Get-ChildItem -Path (Join-Path $vendorFolderDst "machine") -Filter "*.json").Count
+
+[pscustomobject]@{
+  vendor_index    = $okIndex
+  common_exists   = $okCommon
+  machine_count   = $machineCount
+  timestamp       = (Get-Date)
+} | Format-List
+
+Write-Host "Done. Restart OrcaSlicer to load updated profiles." -ForegroundColor Green
+return
