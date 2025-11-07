@@ -18,16 +18,21 @@ Correct movement capability parameters for LONGER LK10 and LONGER LK10 Plus mach
   - machine_max_acceleration_{x,y,z,e}
   - machine_max_acceleration_{extruding,retracting,travel}
   - retraction_speed, deretraction_speed
+  - machine_start_gcode (per-model variant)
 
 ## Out of Scope
 - Changes to fdm_machine_common.json
 - Non-movement parameters (extrusion, temperatures, jerk/PA, etc.)
 
 ## Acceptance Criteria
-- All LK10/LK10 Plus presets inherit or explicitly set the following values:
+- LK10 Plus presets inherit common values:
   - Speeds (mm/s): X=500, Y=500, Z=20, E=60
   - Accelerations (mm/s²): X=7000, Y=7000, Z=300, E=5000
-  - Extruding/Retraction/Travel accelerations (mm/s²): 7000/7000/7000
+  - Extruding/Retraction/Travel (mm/s²): 7000/7000/7000
+- LK10 presets override movement values per model:
+  - Speeds (mm/s): X=500, Y=500, Z=12, E=60
+  - Accelerations (mm/s²): X=10000, Y=10000, Z=500, E=5000
+  - Extruding/Retraction/Travel (mm/s²): 10000/10000/10000
 - JSON syntax valid; application starts and loads these presets without schema warnings.
 - No unintended changes to unrelated machines.
 

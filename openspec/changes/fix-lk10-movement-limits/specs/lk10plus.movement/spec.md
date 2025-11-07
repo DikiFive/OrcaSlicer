@@ -28,3 +28,10 @@
 - Then the preset MUST include (arrays of strings):
   - "retraction_speed": ["35"]
   - "deretraction_speed": ["35"]
+
+#### Scenario: LK10 Plus machine start gcode is customized
+- Given the machine preset for any nozzle variant of LONGER LK10 Plus
+- Then it MUST define "machine_start_gcode" that contains the tokens:
+  - "PROBE_EDDY_SINGLE_HOME"
+  - "G1 X161 Y-5" (tool-clean arc center near X160,Y-5)
+  - "BED_MESH_PROFILE LOAD=default"
