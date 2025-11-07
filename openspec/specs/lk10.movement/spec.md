@@ -1,4 +1,10 @@
-## MODIFIED Requirements: LONGER LK10 movement limits
+# lk10.movement Specification
+
+## Purpose
+Document the required movement limits and LK10-specific start G-code tokens for all LONGER LK10 machine presets, ensuring every nozzle variant enforces the validated printer envelope.
+## Requirements
+### Requirement: LONGER LK10 movement limits
+LONGER LK10 machine presets MUST configure movement capabilities and start G-code to match verified printer behavior.
 
 #### Scenario: LK10 movement speeds are limited per verified values
 - Given the machine preset for any nozzle variant of LONGER LK10
@@ -35,3 +41,4 @@
   - "PROBE_EDDY_SINGLE_HOME"
   - "G1 X113.5 Y-5" (tool-clean arc center near X112.5,Y-5)
   - "BED_MESH_PROFILE LOAD=default"
+

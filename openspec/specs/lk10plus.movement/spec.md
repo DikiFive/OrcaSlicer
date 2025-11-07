@@ -1,4 +1,10 @@
-## MODIFIED Requirements: LONGER LK10 Plus movement limits
+# lk10plus.movement Specification
+
+## Purpose
+Document the shared movement envelope, retraction speeds, and LK10 Plus start G-code requirements for all LONGER LK10 Plus presets so every nozzle variant inherits the validated baseline.
+## Requirements
+### Requirement: LONGER LK10 Plus movement limits
+LONGER LK10 Plus machine presets MUST inherit movement constraints from the LONGER common baseline and define Plus-specific start G-code.
 
 #### Scenario: LK10 Plus movement speeds are limited per verified values
 - Given the machine preset for any nozzle variant of LONGER LK10 Plus
@@ -35,3 +41,4 @@
   - "PROBE_EDDY_SINGLE_HOME"
   - "G1 X161 Y-5" (tool-clean arc center near X160,Y-5)
   - "BED_MESH_PROFILE LOAD=default"
+

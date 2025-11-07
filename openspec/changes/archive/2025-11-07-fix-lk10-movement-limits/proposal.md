@@ -1,16 +1,24 @@
 # Change Proposal: Fix LK10/LK10 Plus Movement Limits
 
-## Summary
-Correct movement capability parameters for LONGER LK10 and LONGER LK10 Plus machine profiles. Current presets inherit values from a generic common profile which do not match the verified machine limits. This proposal aligns the per-machine presets with the intended values (as shown in the provided reference UI screenshot) and documents the change.
+## Why
+- Current LONGER LK10 and LK10 Plus presets inherit movement limits from generic defaults that do not reflect the verified machine capabilities.
+- The mismatch causes either aggressive accelerations that introduce artifacts or conservative limits that slow prints.
 
-## Motivation
-- Prevent overly aggressive/insufficient accelerations that cause print artifacts or slowdowns.
-- Ensure consistency across all nozzle variants for LK10 and LK10 Plus.
-- Keep the change tightly scoped to movement capability keys; no behavioral code changes.
+## What Changes
+- Centralize the shared LONGER movement envelope (speeds, accelerations, retract/deretract 35 mm/s) in `resources/profiles/LONGER/machine/fdm_machine_common.json`.
+- Keep LK10 Plus variants aligned with the common values while supplying their dedicated start G-code.
+- Override LK10 variants with their specific Z speed and higher accelerations, plus LK10 start G-code, across all nozzle sizes.
+- Update OpenSpec deltas for `lk10.movement` and `lk10plus.movement` to document the intended settings and start G-code tokens.
+
+## Impact
+- Specs: `openspec/specs/lk10.movement/spec.md`, `openspec/specs/lk10plus.movement/spec.md`.
+- Profiles: `resources/profiles/LONGER/machine/LONGER LK10 (*.json)`, `resources/profiles/LONGER/machine/LONGER LK10 Plus (*.json)`, `resources/profiles/LONGER/machine/fdm_machine_common.json`.
+- No application code changes; data-only preset updates.
 
 ## Scope
 - Profiles only (JSON):
   - resources/profiles/LONGER/machine/
+    - fdm_machine_common.json
     - LONGER LK10 (0.2|0.4|0.6|0.8 nozzle).json
     - LONGER LK10 Plus (0.2|0.4|0.6|0.8 nozzle).json
 - Keys affected:
@@ -21,7 +29,6 @@ Correct movement capability parameters for LONGER LK10 and LONGER LK10 Plus mach
   - machine_start_gcode (per-model variant)
 
 ## Out of Scope
-- Changes to fdm_machine_common.json
 - Non-movement parameters (extrusion, temperatures, jerk/PA, etc.)
 
 ## Acceptance Criteria
