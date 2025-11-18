@@ -313,6 +313,7 @@ bash
 
 ```bash
 .\OrcaSlicer_profile_validator.exe --path d:\codes\OrcaSlicer\resources\profiles -l 2 -v Custom
+.\build\src\Release\OrcaSlicer_profile_validator.exe --path F:\OS\OrcaSlicer-main\resources\profiles -l 2 -v LONGER
 ```
 
 #### 验证结果：
@@ -337,6 +338,7 @@ bash
 
 ```bash
 python ./orca_extra_profile_check.py --vendor="ExampleVendor" --check-filaments --check-materials
+python .\scripts\orca_extra_profile_check.py --vendor="LONGER" --check-filaments --check-materials
 ```
 
 #### 验证结果：
